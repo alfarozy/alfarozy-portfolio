@@ -5,3 +5,4 @@ export { Footer } from "./Footer";
 export { InteractiveBackground } from "./InteractiveBackground";
 export { SpotlightCard } from "./SpotlightCard";
 export { BottomNavbar } from "./BottomNavbar";
+export * from "./TechIcons";

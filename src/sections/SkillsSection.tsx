@@ -1,7 +1,7 @@
 import { skillsData } from "@/config";
 import { useTranslation } from "react-i18next";
-import { Code2, Server, Cloud, Wrench, Cpu, Check } from "lucide-react";
-import { SpotlightCard } from "@/components/SpotlightCard";
+import { Code2, Server, Cloud, Wrench, Cpu } from "lucide-react";
+import { SpotlightCard, TechIcon } from "@/components";
 
 export const SkillsSection = () => {
   const { t } = useTranslation();
@@ -50,10 +50,10 @@ export const SkillsSection = () => {
                 {category.skills.map((skill) => (
                   <div
                     key={skill}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-xs font-mono text-(--color-fg)"
+                    className="flex items-center gap-2.5 px-3 py-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) hover:border-(--color-subtle) transition-colors text-xs font-mono text-(--color-fg)"
                   >
-                    <Check className="w-3.5 h-3.5 text-(--color-muted) shrink-0" />
-                    <span>{skill}</span>
+                    <TechIcon name={skill} className="w-4 h-4 shrink-0" size={16} />
+                    <span className="truncate">{skill}</span>
                   </div>
                 ))}
               </div>
