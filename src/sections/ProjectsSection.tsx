@@ -1,231 +1,216 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Github,
   Award,
-  ChevronLeft,
-  ChevronRight,
-  Maximize2,
   Layers,
   ArrowUpRight,
+  Sparkles,
+  Info,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { projectsData, type ProjectData } from "@/config";
+import { SpotlightCard } from "@/components/SpotlightCard";
 import { ProjectDetailModal } from "@/components/ProjectDetailModal";
 
 export const ProjectsSection = () => {
   const { t } = useTranslation();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeModalProject, setActiveModalProject] = useState<ProjectData | null>(null);
 
-  const currentProject = projectsData[selectedIndex];
+  // Extract unique categories
+  const categories = ["All", ...Array.from(new Set(projectsData.map((p) => p.category)))];
 
-  const handlePrev = () => {
-    setSelectedIndex((prev) => (prev > 0 ? prev - 1 : projectsData.length - 1));
-  };
-
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev < projectsData.length - 1 ? prev + 1 : 0));
-  };
-
-  // keyboard arrow navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (document.body.classList.contains("modal-open")) return;
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex]);
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projectsData
+      : projectsData.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-0 lg:min-h-[75vh] flex flex-col justify-center py-4 sm:py-6 md:py-8 w-full space-y-4 sm:space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-(--color-border) pb-3">
-        <div className="space-y-1">
+    <div className="min-h-0 lg:min-h-[75vh] flex flex-col justify-center py-4 sm:py-8 md:py-12 w-full space-y-6 sm:space-y-8">
+      {/* Header Section */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-(--color-border) pb-4">
+        <div className="space-y-1.5 max-w-2xl">
           <div className="inline-flex items-center gap-2 text-caption text-(--color-muted) font-mono">
-            <Layers className="w-3.5 h-3.5 text-(--color-fg)" aria-hidden="true" />
+            <Layers className="w-3.5 h-3.5 text-(--color-primary)" aria-hidden="true" />
             <span>{t("projects.label", "PORTFOLIO")}</span>
           </div>
           <h2 className="text-headline font-bold text-(--color-fg)">
             {t("projects.heading", "Featured Projects")}
           </h2>
+          <p className="text-body text-xs sm:text-sm text-(--color-muted)">
+            {t(
+              "projects.intro",
+              "A curated collection of web applications, cloud backends, and digital platforms."
+            )}
+          </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-(--color-muted)">
-            <strong className="text-(--color-fg)">{String(selectedIndex + 1).padStart(2, "0")}</strong>
-            <span className="opacity-40"> / {String(projectsData.length).padStart(2, "0")}</span>
+        {/* Total Project Counter Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-(--color-border) bg-(--color-surface) text-xs font-mono text-(--color-muted) self-start sm:self-auto shrink-0">
+          <Sparkles className="w-3.5 h-3.5 text-(--color-primary)" />
+          <span>
+            <strong className="text-(--color-fg)">{filteredProjects.length}</strong> Projects
           </span>
-
-          <div className="flex items-center gap-1.5 p-1 rounded-xl border border-(--color-border) bg-(--color-surface)">
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-lg hover:bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center focus-visible:outline-2"
-              aria-label="Previous project (←)"
-              title="Previous project (←)"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-lg hover:bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center focus-visible:outline-2"
-              aria-label="Next project (→)"
-              title="Next project (→)"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentProject.id}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.25, ease: "easeInOut" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch rounded-3xl border border-(--color-border) bg-(--color-surface) p-4 sm:p-7 md:p-10 shadow-xs"
-        >
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-3 sm:space-y-4">
-            <div className="rounded-2xl border border-(--color-border) bg-(--color-surface-raised) overflow-hidden relative flex-1 flex flex-col justify-between">
-              <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 border-b border-(--color-border) bg-(--color-surface) text-xs font-mono text-(--color-muted)">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600/40" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600/40" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-600/40" />
-                </div>
-                <span className="text-[11px] opacity-70 tracking-wider truncate max-w-[160px] sm:max-w-[200px]">
-                  {currentProject.title.toLowerCase().replace(/\s+/g, "")}.preview
-                </span>
-                <button
-                  onClick={() => setActiveModalProject(currentProject)}
-                  className="p-1 rounded hover:bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer"
-                  title="Inspect screenshot"
-                >
-                  <Maximize2 className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              <div
-                onClick={() => setActiveModalProject(currentProject)}
-                className="aspect-[16/10] w-full flex items-center justify-center p-3 sm:p-6 cursor-pointer relative"
-              >
-                <img
-                  src={currentProject.image}
-                  alt={currentProject.title}
-                  width={currentProject.imageWidth}
-                  height={currentProject.imageHeight}
-                  loading="lazy"
-                  className="w-full h-full object-contain"
-                />
-
-                {currentProject.award && (
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-(--color-accent-orange) text-white text-xs font-semibold font-mono shadow-md">
-                    <Award className="w-3.5 h-3.5" />
-                    <span>{currentProject.award}</span>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between text-xs font-mono text-(--color-muted) px-1">
-              <span>Category: <strong className="text-(--color-fg)">{currentProject.category}</strong></span>
-              <span>Year: <strong className="text-(--color-fg)">{currentProject.year}</strong></span>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="space-y-1.5">
-                <span className="text-xs font-mono uppercase tracking-widest text-(--color-muted)">
-                  Project Case Study
-                </span>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-(--color-fg)">
-                  {currentProject.title}
-                </h3>
-                <div className="text-xs font-mono text-(--color-muted)">
-                  <span>Role: </span>
-                  <strong className="text-(--color-primary) font-semibold">{currentProject.role}</strong>
-                </div>
-              </div>
-
-              <p className="text-body text-sm sm:text-base leading-relaxed text-(--color-muted)">
-                {t(currentProject.desc)}
-              </p>
-
-              <div className="space-y-2 pt-2">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-(--color-muted) block">
-                  Core Technologies
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {currentProject.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs font-mono px-3 py-1.5 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg)"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-(--color-border) space-y-3">
-              <div className="flex flex-wrap items-center gap-3">
-                {currentProject.link && (
-                  <a
-                    href={currentProject.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-(--color-primary) text-white font-semibold text-xs hover:opacity-90 shadow-sm shadow-blue-500/20 transition-all min-h-[44px]"
-                  >
-                    <span>Visit Live Site</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                )}
-
-                {currentProject.repo && (
-                  <a
-                    href={currentProject.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg) text-xs font-semibold hover:bg-(--color-surface) transition-colors min-h-[44px]"
-                    title="View Source Code"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span>Source</span>
-                  </a>
-                )}
-
-                <button
-                  onClick={() => setActiveModalProject(currentProject)}
-                  className="px-4 py-3 rounded-xl border border-(--color-border) text-(--color-muted) hover:text-(--color-primary) hover:border-(--color-primary)/50 hover:bg-(--color-surface-raised) text-xs font-semibold transition-colors min-h-[44px] cursor-pointer"
-                >
-                  Full Details
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="flex items-center justify-center gap-2 pt-1">
-        {projectsData.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setSelectedIndex(idx)}
-            className={`transition-all rounded-full cursor-pointer ${
-              selectedIndex === idx
-                ? "w-8 h-2 bg-(--color-primary)"
-                : "w-2 h-2 bg-(--color-border) hover:bg-(--color-muted)"
-            }`}
-            aria-label={`Go to project ${idx + 1}`}
-          />
-        ))}
+      {/* Category Filter Tabs */}
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        {categories.map((category) => {
+          const isSelected = selectedCategory === category;
+          return (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all cursor-pointer shrink-0 border focus-visible:outline-2 ${
+                isSelected
+                  ? "bg-(--color-primary) text-white border-(--color-primary) shadow-sm shadow-blue-500/25"
+                  : "bg-(--color-surface) text-(--color-muted) border-(--color-border) hover:border-(--color-primary)/50 hover:text-(--color-fg)"
+              }`}
+            >
+              {category === "All" ? t("projects.all", "All Projects") : category}
+            </button>
+          );
+        })}
       </div>
 
+      {/* Modern Responsive Interactive Project Grid */}
+      <motion.div
+        layout
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+      >
+        <AnimatePresence>
+          {filteredProjects.map((project) => (
+            <motion.div
+              layout
+              key={project.id}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.25 }}
+              className="h-full flex"
+            >
+              <SpotlightCard className="p-4 sm:p-5 rounded-2xl border border-(--color-border) bg-(--color-surface) shadow-xs transition-all hover:border-(--color-primary)/50 flex flex-col justify-between w-full group">
+                <div className="space-y-4">
+                  {/* Mock Browser / Image Preview Area */}
+                  <div
+                    onClick={() => setActiveModalProject(project)}
+                    className="relative rounded-xl border border-(--color-border) bg-(--color-surface-raised) overflow-hidden aspect-[16/10] cursor-pointer group-hover:border-(--color-primary)/30 transition-colors"
+                  >
+                    {/* Top Mock Window Bar */}
+                    <div className="flex items-center justify-between px-3 py-1.5 border-b border-(--color-border) bg-(--color-surface) text-[10px] font-mono text-(--color-muted)">
+                      <div className="flex items-center gap-1">
+                        <span className="w-2 h-2 rounded-full bg-zinc-500/30" />
+                        <span className="w-2 h-2 rounded-full bg-zinc-500/30" />
+                        <span className="w-2 h-2 rounded-full bg-zinc-500/30" />
+                      </div>
+                      <span className="truncate max-w-[130px] opacity-70">
+                        {project.title.toLowerCase().replace(/\s+/g, "")}.web
+                      </span>
+                    </div>
+
+                    {/* Screenshot Thumbnail */}
+                    <div className="w-full h-[calc(100%-25px)] p-2.5 flex items-center justify-center">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        width={project.imageWidth}
+                        height={project.imageHeight}
+                        loading="lazy"
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Optional Award Badge */}
+                    {project.award && (
+                      <div className="absolute top-8 left-2.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-(--color-accent-orange) text-white text-[10px] font-semibold font-mono shadow-xs">
+                        <Award className="w-3 h-3" />
+                        <span>Best Capstone</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Project Meta Information */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-xs font-mono text-(--color-muted)">
+                      <span className="px-2 py-0.5 rounded-md bg-(--color-surface-raised) border border-(--color-border) text-(--color-primary) font-semibold">
+                        {project.category}
+                      </span>
+                      <span>{project.year}</span>
+                    </div>
+
+                    <h3
+                      onClick={() => setActiveModalProject(project)}
+                      className="text-lg sm:text-xl font-bold tracking-tight text-(--color-fg) group-hover:text-(--color-primary) transition-colors cursor-pointer"
+                    >
+                      {project.title}
+                    </h3>
+
+                    <p className="text-body text-xs sm:text-sm text-(--color-muted) line-clamp-2 leading-relaxed">
+                      {t(project.desc)}
+                    </p>
+                  </div>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.tech.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded-md border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted)"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tech.length > 3 && (
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-md text-(--color-muted) bg-(--color-surface-raised)">
+                        +{project.tech.length - 3}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Card Action Buttons */}
+                <div className="pt-4 mt-4 border-t border-(--color-border) flex items-center gap-2">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-(--color-primary) text-white font-semibold text-xs hover:opacity-90 shadow-sm shadow-blue-500/20 transition-all min-h-[38px]"
+                    >
+                      <span>Live Site</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+
+                  {project.repo && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-xl border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg) hover:bg-(--color-surface) transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center"
+                      title="View GitHub Repository"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
+
+                  <button
+                    onClick={() => setActiveModalProject(project)}
+                    className="p-2 rounded-xl border border-(--color-border) text-(--color-muted) hover:text-(--color-primary) hover:border-(--color-primary)/50 hover:bg-(--color-surface-raised) transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center cursor-pointer"
+                    title="View Project Details"
+                  >
+                    <Info className="w-4 h-4" />
+                  </button>
+                </div>
+              </SpotlightCard>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Modal Detail Pop-up */}
       <ProjectDetailModal
         isOpen={!!activeModalProject}
         project={activeModalProject}
@@ -234,3 +219,4 @@ export const ProjectsSection = () => {
     </div>
   );
 };
+

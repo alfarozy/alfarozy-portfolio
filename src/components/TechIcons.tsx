@@ -11,6 +11,11 @@ import {
   FileCode2,
   Layers,
   Smartphone,
+  GitBranch,
+  Database,
+  Activity,
+  ShieldCheck,
+  Boxes,
 } from "lucide-react";
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
@@ -293,6 +298,12 @@ export const FigmaIcon = ({ size = 20, className, ...props }: IconProps) => (
   </svg>
 );
 
+export const CloudflareIcon = ({ size = 20, className, ...props }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="#F38020" className={className} {...props}>
+    <path d="M19.785 10.457c-.161-.007-.323-.007-.484 0a5.952 5.952 0 0 0-5.467-3.585 5.956 5.956 0 0 0-5.719 4.27 4.792 4.792 0 0 0-1.127-.134 4.8 4.8 0 0 0-4.79 4.385A3.81 3.81 0 0 0 0 19.123 3.82 3.82 0 0 0 3.82 22.94h15.965a4.238 4.238 0 0 0 4.238-4.238 4.24 4.24 0 0 0-4.238-4.245z"/>
+  </svg>
+);
+
 export const MicrosoftOfficeIcon = ({ size = 20, className, ...props }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 78.799 96" className={className} {...props}>
     <defs>
@@ -405,6 +416,7 @@ export const svgIconMap: Record<string, (props: IconProps) => ReactNode> = {
   git: (props) => <GitIcon {...props} />,
   gitlab: (props) => <GitLabIcon {...props} />,
   figma: (props) => <FigmaIcon {...props} />,
+  cloudflare: (props) => <CloudflareIcon {...props} />,
   office: (props) => <MicrosoftOfficeIcon {...props} />,
   "microsoft office": (props) => <MicrosoftOfficeIcon {...props} />,
   word: (props) => <MicrosoftWordIcon {...props} />,
@@ -441,7 +453,8 @@ function resolveIconKey(name: string): string | null {
   if (clean.includes("linkedin")) return "linkedin";
   if (clean.includes("mysql")) return "mysql";
   if (clean.includes("postgres")) return "postgresql";
-  if (clean.includes("google cloud") || clean.includes("compute engine") || clean === "gcp") return "gcp";
+  if (clean.includes("google cloud") || clean.includes("compute engine") || clean.includes("cloud storage") || clean.includes("cloud run") || clean.includes("cloud sql") || clean === "gcp") return "gcp";
+  if (clean.includes("cloudflare")) return "cloudflare";
   if (clean.includes("docker")) return "docker";
   if (clean.includes("linux")) return "linux";
   if (clean.includes("figma")) return "figma";
@@ -483,7 +496,22 @@ export function FallbackLibraryIcon({ name, className, size = 16 }: { name: stri
   if (clean.includes("inertia") || clean.includes("ui")) {
     return <Layers size={size} className={className} />;
   }
-  if (clean.includes("server")) {
+  if (clean.includes("ci") || clean.includes("cd") || clean.includes("pipeline") || clean.includes("action")) {
+    return <GitBranch size={size} className={className} />;
+  }
+  if (clean.includes("database") || clean.includes("sql")) {
+    return <Database size={size} className={className} />;
+  }
+  if (clean.includes("monitor") || clean.includes("logging") || clean.includes("metric")) {
+    return <Activity size={size} className={className} />;
+  }
+  if (clean.includes("iam") || clean.includes("firewall") || clean.includes("security")) {
+    return <ShieldCheck size={size} className={className} />;
+  }
+  if (clean.includes("cluster") || clean.includes("microservice") || clean.includes("container")) {
+    return <Boxes size={size} className={className} />;
+  }
+  if (clean.includes("server") || clean.includes("nginx")) {
     return <Server size={size} className={className} />;
   }
 

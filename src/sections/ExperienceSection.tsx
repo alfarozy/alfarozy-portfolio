@@ -1,165 +1,167 @@
-import { useState, useEffect } from "react";
 import { experienceData } from "@/config";
 import { useTranslation } from "react-i18next";
 import {
-  Briefcase,
+  Compass,
   Calendar,
   Building2,
-  ChevronLeft,
-  ChevronRight,
   CheckCircle2,
+  Sparkles,
+  ArrowDown,
+  MapPin,
 } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
 import { SpotlightCard } from "@/components/SpotlightCard";
 
 export const ExperienceSection = () => {
   const { t } = useTranslation();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const selectedExp = experienceData[selectedIndex];
-
-  const handlePrev = () => {
-    setSelectedIndex((prev) => (prev > 0 ? prev - 1 : experienceData.length - 1));
-  };
-
-  const handleNext = () => {
-    setSelectedIndex((prev) => (prev < experienceData.length - 1 ? prev + 1 : 0));
-  };
-
-  // keyboard arrow navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (document.body.classList.contains("modal-open")) return;
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex]);
 
   return (
-    <div className="min-h-0 lg:min-h-[75vh] flex flex-col justify-center py-4 sm:py-6 md:py-8 w-full space-y-4 sm:space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-(--color-border) pb-3">
-        <div className="space-y-1">
+    <div className="min-h-0 lg:min-h-[75vh] flex flex-col justify-center py-4 sm:py-8 md:py-12 w-full space-y-8 sm:space-y-10">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-(--color-border) pb-4">
+        <div className="space-y-1.5 max-w-2xl">
           <div className="inline-flex items-center gap-2 text-caption text-(--color-muted) font-mono">
-            <Briefcase className="w-3.5 h-3.5 text-(--color-fg)" aria-hidden="true" />
-            <span>{t("journey.label", "EXPERIENCE")}</span>
+            <Compass className="w-3.5 h-3.5 text-(--color-primary)" aria-hidden="true" />
+            <span>{t("journey.label", "CAREER JOURNEY")}</span>
           </div>
           <h2 className="text-headline font-bold text-(--color-fg)">
-            {t("journey.heading", "Work Experience")}
+            {t("journey.heading", "Professional Path & Growth")}
           </h2>
+          <p className="text-body text-xs sm:text-sm text-(--color-muted)">
+            {t(
+              "journey.intro",
+              "A chronological milestone of my learning, technical roles, leadership initiatives, and professional contributions."
+            )}
+          </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-(--color-muted)">
-            <strong className="text-(--color-fg)">{String(selectedIndex + 1).padStart(2, "0")}</strong>
-            <span className="opacity-40"> / {String(experienceData.length).padStart(2, "0")}</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-(--color-border) bg-(--color-surface) text-xs font-mono text-(--color-muted) self-start sm:self-auto shrink-0">
+          <span className="text-(--color-fg) font-semibold flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-(--color-accent-orange) animate-pulse" />
+            Present
           </span>
-
-          <div className="flex items-center gap-1.5 p-1 rounded-xl border border-(--color-border) bg-(--color-surface)">
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-lg hover:bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center focus-visible:outline-2"
-              aria-label="Previous milestone (←)"
-              title="Previous milestone (←)"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-lg hover:bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center focus-visible:outline-2"
-              aria-label="Next milestone (→)"
-              title="Next milestone (→)"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+          <ArrowDown className="w-3 h-3 text-(--color-primary)" />
+          <span>2020</span>
         </div>
       </div>
 
-      <SpotlightCard className="p-5 sm:p-8 md:p-10 rounded-3xl border border-(--color-border) bg-(--color-surface) shadow-xs">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedExp.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start"
-          >
-            <div className="lg:col-span-5 space-y-4 sm:space-y-6">
-              <div className="space-y-2 sm:space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono text-(--color-muted)">
-                  <span className="text-(--color-fg) font-semibold">
-                    Milestone {String(selectedIndex + 1).padStart(2, "0")} / {String(experienceData.length).padStart(2, "0")}
-                  </span>
-                  <span className="opacity-40">·</span>
-                  <span>{t(selectedExp.period)}</span>
-                </div>
+      {/* VERTICAL CONNECTED TIMELINE */}
+      <div className="relative pl-6 sm:pl-8 md:pl-10 space-y-8 sm:space-y-10">
+        {/* Continuous vertical connecting line: from brand orange active to subtle blue/border */}
+        <div
+          className="absolute left-[11px] sm:left-[15px] md:left-[19px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-(--color-accent-orange) via-blue-500/40 to-(--color-border)"
+          aria-hidden="true"
+        />
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-(--color-fg) leading-tight">
-                  {t(selectedExp.role)}
-                </h3>
 
-                <div className="flex items-center gap-2.5 text-base font-mono text-(--color-muted) pt-1">
-                  <Building2 className="w-4 h-4 text-(--color-fg)" />
-                  <span className="font-semibold text-(--color-primary)">{t(selectedExp.company)}</span>
-                </div>
+        {experienceData.map((item, index) => {
+          const isLatest = item.isCurrent;
+
+          return (
+            <div key={item.id} className="relative group">
+              {/* Timeline Node Icon/Dot */}
+              <div
+                className={`absolute -left-[23px] sm:-left-[27px] md:-left-[31px] top-5 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center border-2 transition-all duration-300 z-10 ${
+                  isLatest
+                    ? "bg-(--color-accent-orange) border-orange-400 text-white shadow-md shadow-orange-500/30 scale-110"
+                    : "bg-(--color-surface) border-(--color-border) text-(--color-muted) group-hover:border-(--color-primary) group-hover:text-(--color-primary)"
+                }`}
+                aria-hidden="true"
+              >
+                {isLatest ? (
+                  <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-(--color-primary)" />
+                )}
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-(--color-border) bg-(--color-surface-raised) text-xs font-mono text-(--color-muted)">
-                <Calendar className="w-3.5 h-3.5 text-(--color-fg)" />
-                <span>{t(selectedExp.period)}</span>
-              </div>
-            </div>
+              {/* Milestone Card */}
+              <SpotlightCard className="p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl border border-(--color-border) bg-(--color-surface) shadow-xs transition-all hover:border-(--color-primary)/40">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-start">
+                  {/* Left Column: Logo, Role, Company, Period, Location */}
+                  <div className="lg:col-span-5 space-y-4">
+                    <div className="flex items-start gap-3.5 sm:gap-4">
+                      {/* Company Logo or Monogram/Initials */}
+                      <div className="w-12 h-12 rounded-2xl bg-(--color-surface-raised) border border-(--color-border) p-1.5 flex items-center justify-center shrink-0 overflow-hidden shadow-xs">
+                        {item.logo ? (
+                          <img
+                            src={item.logo}
+                            alt={t(item.company)}
+                            className="w-full h-full object-contain"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="w-full h-full rounded-xl bg-(--color-primary)/10 text-(--color-primary) flex items-center justify-center font-mono font-bold text-sm tracking-wider">
+                            {item.initials || <Building2 className="w-5 h-5 text-(--color-primary)" />}
+                          </div>
+                        )}
+                      </div>
 
-            <div className="lg:col-span-7 space-y-5 border-t lg:border-t-0 lg:border-l border-(--color-border) pt-5 lg:pt-0 lg:pl-8">
-              <div className="space-y-2 sm:space-y-3">
-                <span className="text-xs font-mono uppercase tracking-wider text-(--color-muted) block">
-                  Responsibilities & Key Impact
-                </span>
-                <p className="text-body text-sm sm:text-base leading-relaxed text-(--color-muted)">
-                  {t(selectedExp.desc)}
-                </p>
-              </div>
+                      <div className="min-w-0 flex-1 space-y-1">
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono text-xs font-semibold text-(--color-muted) truncate">
+                            {t(item.company)}
+                          </span>
+                          {isLatest && (
+                            <span className="px-2 py-0.5 rounded-md bg-(--color-accent-orange)/10 text-(--color-accent-orange) font-semibold text-[10px] font-mono border border-(--color-accent-orange)/20 shrink-0">
+                              {t("journey.present_badge", "Current Role")}
+                            </span>
+                          )}
+                        </div>
 
-              {selectedExp.tech && selectedExp.tech.length > 0 && (
-                <div className="space-y-2.5 pt-2">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-(--color-muted) block">
-                    Core Technologies & Competencies
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedExp.tech.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center gap-1.5 text-xs font-mono px-3.5 py-1.5 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg)"
-                      >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-(--color-secondary)" />
-                        <span>{tag}</span>
-                      </span>
-                    ))}
+                        <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-(--color-fg) leading-snug">
+                          {t(item.role)}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-xs font-mono text-(--color-muted)">
+                        <Calendar className="w-3 h-3 text-(--color-primary)" />
+                        <span>{t(item.period)}</span>
+                      </div>
+
+                      {item.location && (
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-xs font-mono text-(--color-muted)">
+                          <MapPin className="w-3 h-3 text-(--color-primary)" />
+                          <span>{t(item.location)}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right Column: Description & Tech Stack */}
+                  <div className="lg:col-span-7 space-y-4 border-t lg:border-t-0 lg:border-l border-(--color-border) pt-4 lg:pt-0 lg:pl-6">
+                    <p className="text-body text-sm sm:text-base leading-relaxed text-(--color-muted)">
+                      {t(item.desc)}
+                    </p>
+
+                    {item.tech && item.tech.length > 0 && (
+                      <div className="space-y-2 pt-1">
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-(--color-muted) block">
+                          Core Technologies & Competencies
+                        </span>
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                          {item.tech.map((tag) => (
+                            <span
+                              key={tag}
+                              className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-md border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg)"
+                            >
+                              <CheckCircle2 className="w-3 h-3 text-(--color-secondary)" />
+                              <span>{tag}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
+              </SpotlightCard>
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </SpotlightCard>
-
-      <div className="flex items-center justify-center gap-2 pt-1">
-        {experienceData.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setSelectedIndex(idx)}
-            className={`transition-all rounded-full cursor-pointer ${
-              selectedIndex === idx
-                ? "w-8 h-2 bg-(--color-primary)"
-                : "w-2 h-2 bg-(--color-border) hover:bg-(--color-muted)"
-            }`}
-            aria-label={`Go to milestone ${idx + 1}`}
-          />
-        ))}
+          );
+        })}
       </div>
     </div>
   );
 };
+
+

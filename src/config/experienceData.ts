@@ -1,43 +1,79 @@
+import unpasLogo from "@/assets/educations/unpas.png";
+
 export interface ExperienceItem {
   id: number;
   role: string;
   company: string;
   period: string;
+  location?: string;
   desc: string;
   tech: string[];
+  logo?: string;
+  initials?: string;
+  isCurrent?: boolean;
 }
 
 export const experienceData: ExperienceItem[] = [
   {
     id: 1,
-    role: "data.exp_dremaxtion_role",
-    company: "data.exp_dremaxtion_company",
-    period: "data.exp_dremaxtion_period",
-    desc: "data.exp_dremaxtion_desc",
-    tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Laravel", "Inertia.js", "Component Architecture"],
+    role: "data.exp_etafilia_role",
+    company: "data.exp_etafilia_company",
+    period: "data.exp_etafilia_period",
+    location: "data.exp_etafilia_location",
+    desc: "data.exp_etafilia_desc",
+    tech: ["Product Leadership", "System Architecture", "Laravel", "React.js", "Financial Systems", "Fullstack Development"],
+    initials: "ET",
+    isCurrent: true,
   },
   {
     id: 2,
-    role: "data.exp_gdc_role",
-    company: "data.exp_gdc_company",
-    period: "data.exp_gdc_period",
-    desc: "data.exp_gdc_desc",
-    tech: ["Google Cloud Platform", "Virtual Machines", "Curriculum Design", "Mentoring"],
+    role: "data.exp_cyberarmy_role",
+    company: "data.exp_cyberarmy_company",
+    period: "data.exp_cyberarmy_period",
+    location: "data.exp_cyberarmy_location",
+    desc: "data.exp_cyberarmy_desc",
+    tech: ["Laravel", "REST APIs", "PHP", "MySQL", "API Architecture", "Performance Optimization"],
+    initials: "CA",
   },
   {
     id: 3,
-    role: "data.exp_bangkit_role",
-    company: "data.exp_bangkit_company",
-    period: "data.exp_bangkit_period",
-    desc: "data.exp_bangkit_desc",
-    tech: ["Node.js", "REST API", "JWT Auth", "Google Compute Engine", "Cloud Storage"],
+    role: "data.exp_gdgoc_role",
+    company: "data.exp_gdgoc_company",
+    period: "data.exp_gdgoc_period",
+    location: "data.exp_gdgoc_location",
+    desc: "data.exp_gdgoc_desc",
+    tech: ["Web Development", "JavaScript", "Developer Workshops", "Community Mentoring"],
+    logo: unpasLogo,
+    initials: "GD",
   },
   {
     id: 4,
-    role: "data.exp_smk_role",
-    company: "data.exp_smk_company",
-    period: "data.exp_smk_period",
-    desc: "data.exp_smk_desc",
-    tech: ["Hardware Troubleshooting", "Network Configuration", "Data Admin", "MS Excel"],
+    role: "data.exp_bangkit_role",
+    company: "data.exp_bangkit_company",
+    period: "data.exp_bangkit_period",
+    location: "data.exp_bangkit_location",
+    desc: "data.exp_bangkit_desc",
+    tech: ["Google Cloud Platform (GCP)", "DevOps", "Docker", "Node.js", "REST APIs", "Cloud Computing"],
+    initials: "BK",
+  },
+  {
+    id: 5,
+    role: "data.exp_baitsolution_role",
+    company: "data.exp_baitsolution_company",
+    period: "data.exp_baitsolution_period",
+    location: "data.exp_baitsolution_location",
+    desc: "data.exp_baitsolution_desc",
+    tech: ["Laravel", "PHP", "MySQL", "Web Development", "Client Solutions"],
+    initials: "BS",
+  },
+  {
+    id: 6,
+    role: "data.exp_pasamandev_role",
+    company: "data.exp_pasamandev_company",
+    period: "data.exp_pasamandev_period",
+    location: "data.exp_pasamandev_location",
+    desc: "data.exp_pasamandev_desc",
+    tech: ["Web Development", "Git & GitHub", "Programming Fundamentals", "Collaboration"],
+    initials: "PD",
   },
 ];

@@ -7,10 +7,8 @@ export const SkillsSection = () => {
   const { t } = useTranslation();
 
   const domainIcons = [
-    <Code2 key="code" className="w-5 h-5 text-(--color-fg)" aria-hidden="true" />,
-    <Server key="server" className="w-5 h-5 text-(--color-fg)" aria-hidden="true" />,
-    <Cloud key="cloud" className="w-5 h-5 text-(--color-fg)" aria-hidden="true" />,
-    <Wrench key="wrench" className="w-5 h-5 text-(--color-fg)" aria-hidden="true" />,
+    <Code2 key="code" className="w-5 h-5 text-(--color-primary)" aria-hidden="true" />,
+    <Cloud key="cloud" className="w-5 h-5 text-(--color-primary)" aria-hidden="true" />,
   ];
 
   return (
