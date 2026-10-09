@@ -7,7 +7,15 @@ import {
   EducationSection,
   ContactSection,
 } from "@/sections";
-import { Sidebar, Footer, Loading, InteractiveBackground, BottomNavbar } from "@/components";
+import {
+  Sidebar,
+  Footer,
+  Loading,
+  InteractiveBackground,
+  BottomNavbar,
+  StarField,
+  CosmicBackground,
+} from "@/components";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useSectionNavigation } from "@/hooks/useSectionNavigation";
@@ -49,16 +57,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-(--color-bg) text-(--color-fg) flex flex-col relative selection:bg-(--color-fg) selection:text-(--color-bg)">
+    <div className="min-h-screen bg-(--color-bg) text-(--color-fg) flex flex-col relative selection:bg-(--color-fg) selection:text-(--color-bg) overflow-x-hidden">
       <AnimatePresence>
         {isLoading && (
           <Loading onLoadingComplete={handleLoadingComplete} />
         )}
       </AnimatePresence>
 
+      {/* Layer 2: Subtle cosmic starlight field */}
+      <StarField />
+
+      {/* Layer 3: Cosmic atmosphere & nebula glow */}
+      <CosmicBackground />
+
+      {/* Interactive cursor tracking grid & spotlight */}
       <InteractiveBackground />
 
+
       <Sidebar
+
         activeSection={activeSection}
         onNavigateSection={handleNavigateSection}
         isCollapsed={isSidebarCollapsed}

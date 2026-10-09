@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export interface SectionDef {
   id: string;
@@ -16,8 +16,6 @@ export const SECTIONS: SectionDef[] = [
 
 export const useSectionNavigation = () => {
   const [activeSection, setActiveSection] = useState("hero");
-  const isThrottled = useRef(false);
-  const touchStartY = useRef<number | null>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -53,33 +51,6 @@ export const useSectionNavigation = () => {
   }, [activeSection, handleNavigateSection]);
 
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (document.body.classList.contains("modal-open")) return;
-
-      const isScrollable =
-        document.documentElement.scrollHeight > window.innerHeight + 10;
-      const isAtBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 5;
-      const isAtTop = window.scrollY <= 5;
-
-      if (isThrottled.current) return;
-
-      if (e.deltaY > 40 && (!isScrollable || isAtBottom)) {
-        isThrottled.current = true;
-        goToNextSection();
-        setTimeout(() => {
-          isThrottled.current = false;
-        }, 750);
-      } else if (e.deltaY < -40 && (!isScrollable || isAtTop)) {
-        isThrottled.current = true;
-        goToPrevSection();
-        setTimeout(() => {
-          isThrottled.current = false;
-        }, 750);
-      }
-    };
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (document.body.classList.contains("modal-open")) return;
       if (e.key === "PageDown") {
@@ -89,51 +60,10 @@ export const useSectionNavigation = () => {
       }
     };
 
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = (e: TouchEvent) => {
-      if (touchStartY.current === null || document.body.classList.contains("modal-open")) return;
-      const touchEndY = e.changedTouches[0].clientY;
-      const diffY = touchStartY.current - touchEndY;
-
-      const isScrollable =
-        document.documentElement.scrollHeight > window.innerHeight + 10;
-      const isAtBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 5;
-      const isAtTop = window.scrollY <= 5;
-
-      if (isThrottled.current) return;
-
-      if (diffY > 90 && (!isScrollable || isAtBottom)) {
-        isThrottled.current = true;
-        goToNextSection();
-        setTimeout(() => {
-          isThrottled.current = false;
-        }, 750);
-      } else if (diffY < -90 && (!isScrollable || isAtTop)) {
-        isThrottled.current = true;
-        goToPrevSection();
-        setTimeout(() => {
-          isThrottled.current = false;
-        }, 750);
-      }
-
-      touchStartY.current = null;
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
 
     return () => {
-      window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [goToNextSection, goToPrevSection]);
 

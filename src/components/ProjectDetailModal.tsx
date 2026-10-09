@@ -309,7 +309,7 @@ const ProjectDetailModal = ({
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-(--color-fg) text-(--color-bg) text-xs font-semibold rounded-xl hover:opacity-90 transition-opacity min-h-[44px]"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-(--color-primary) text-white text-xs font-semibold rounded-xl hover:opacity-90 shadow-sm shadow-blue-500/20 transition-all min-h-[44px]"
                   >
                     <span>Visit Live Project</span>
                     <ExternalLink className="w-3.5 h-3.5" />

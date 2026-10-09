@@ -48,16 +48,16 @@ export const BottomNavbar = ({
             onClick={() => handleItemClick(item.id)}
             className={`flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-xl transition-all cursor-pointer min-h-11 ${
               isActive
-                ? "text-(--color-fg) font-semibold"
+                ? "text-(--color-primary) font-semibold"
                 : "text-(--color-muted) hover:text-(--color-fg)"
             }`}
           >
             <div className="relative">
               <IconComponent
-                className={`w-4.5 h-4.5 ${isActive ? "text-(--color-fg)" : "text-(--color-muted)"}`}
+                className={`w-4.5 h-4.5 ${isActive ? "text-(--color-primary)" : "text-(--color-muted)"}`}
               />
               {isActive && (
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-(--color-fg)" />
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-(--color-primary)" />
               )}
             </div>
             <span className="text-[10px] sm:text-[11px] mt-0.5 tracking-tight truncate max-w-full">

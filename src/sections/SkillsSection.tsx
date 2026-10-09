@@ -41,9 +41,6 @@ export const SkillsSection = () => {
                     {t(category.key, category.category)}
                   </h3>
                 </div>
-                <span className="text-xs font-mono text-(--color-subtle)">
-                  {category.skills.length} skills
-                </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">

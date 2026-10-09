@@ -11,21 +11,28 @@
     "nav_skills": "Skills",
     "nav_foundations": "Education"
   },
-
   "hero": {
-    "available": "Open to work opportunities",
+    "available": "Available for new projects & opportunities",
     "greeting": "Hi, I'm",
-    "headline": "Transforming complex challenges into clean, structured digital solutions.",
+    "headline": "Core Team Leader | Software Engineer | Cyber Scurity Enthusiast ",
     "statement": "Web developer & tech generalist focusing on modern frontend interfaces, REST APIs, and cloud infrastructure.",
     "specialization": "Experienced in Vue.js, React, Laravel, Node.js, and Google Cloud Platform.",
     "cta_work": "Explore Projects",
     "cta_contact": "Get in Touch",
     "cta_cv": "Download CV",
-    "location": "Bandung, Indonesia",
+    "location": "Kota Padang, Indonesia",
+    "experience": "5+ Years Experience",
     "proof_bangkit": "Best Capstone Product (Bangkit Academy 2024)",
     "proof_focus": "Frontend, Cloud Backend, & IT Support"
   },
-
+  "about": {
+    "label": "ABOUT ME",
+    "heading": "Crafting Solutions, Driving Real Impact",
+    "location": "Kota Padang, Indonesia",
+    "p1": "I am a fresh graduate in Informatics from Universitas Pasundan, originally from Riau, Indonesia. Passionate about Cyber Security, Web Technology, and Open Source, I began my software development journey in 2019.",
+    "p2": "I am committed to engineering adaptive digital solutions that empower Indonesian MSMEs to scale sustainably. Currently leading strategic development across Tavio.id, Portavia, and Nyummi.com, my focus centers on transforming ideas into scalable initiatives through digital innovation, ecosystem development, and dependable operational execution.",
+    "motto": "Better Life, Greater Impact. Be a blessing to the universe."
+  },
   "projects": {
     "label": "PROJECTS",
     "heading": "Featured Projects",
@@ -38,7 +45,6 @@
     "slide_count": "Project",
     "intro": "A curated collection of web applications, cloud backends, and digital platforms."
   },
-
   "project_detail": {
     "overview": "Overview",
     "contribution": "Key Contributions",
@@ -56,25 +62,21 @@
     "role_label": "Role",
     "next_project": "Next Project"
   },
-
   "journey": {
     "label": "EXPERIENCE",
     "heading": "Work Experience",
     "intro": "Professional track record in web engineering, cloud curriculum development, and IT operations."
   },
-
   "skills_section": {
     "label": "TECHNICAL SKILLS",
     "heading": "Skills & Technologies",
     "intro": "Technologies and tools utilized across web development, cloud services, and IT systems."
   },
-
   "education": {
-    "label": "EDUCATION",
-    "heading": "Education & Achievements",
-    "intro": "Academic background and technical development programs."
+    "label": "ACADEMIC BACKGROUND",
+    "heading": "Education",
+    "intro": "Building a strong foundation in software engineering and technology."
   },
-
   "contact": {
     "label": "CONTACT",
     "heading_line1": "Let's build something meaningful.",
@@ -83,7 +85,6 @@
     "cv_cta": "Download CV",
     "available": "Available for full-time roles and project collaborations"
   },
-
   "nav": {
     "overview": "Overview",
     "work": "Projects",
@@ -92,56 +93,44 @@
     "foundations": "Education",
     "contact": "Contact"
   },
-
   "sidebar": {
     "subtitle": "Web & Cloud Developer"
   },
-
   "data": {
     "tavio_desc": "Link-in-bio commerce platform for creators and digital businesses.",
     "tavio_full_desc": "Built the frontend of Tavio.id v1 using React.js, Laravel, and Inertia.js, currently live in production. Implemented product link management, store features, and contributed to requirements for v2.",
     "tavio_contribution": "Developed the complete v1 user interface, integrated frontend with backend APIs, and assisted in planning the v2 architecture.",
-
     "sixsafe_desc": "Cybersecurity awareness training platform.",
     "sixsafe_full_desc": "Implemented the landing page, admin dashboard, and trainee portal using Laravel Blade templates. Provided user experience feedback during feature testing.",
     "sixsafe_contribution": "Built responsive layouts for landing and dashboard pages, ensuring smooth navigation across cybersecurity training modules.",
-
     "babygrowth_desc": "Child growth monitoring application developed during Bangkit Academy 2024.",
     "babygrowth_full_desc": "Developed a Node.js REST API with JWT authentication for food recommendation features, and deployed backend services to Google Compute Engine and Cloud Storage. Awarded Best Capstone Product among 200+ teams.",
     "babygrowth_contribution": "Created backend API endpoints, configured authentication, and handled cloud deployment on Google Cloud Platform.",
-
     "apotek_desc": "Digital management system for pharmacy inventory and sales.",
     "apotek_full_desc": "Served as project lead coordinating team progress and building responsive user interfaces for inventory tracking and transaction records.",
     "apotek_contribution": "Led project coordination and implemented frontend interfaces for stock management and sales reporting.",
-
     "ewastepas_desc": "Progressive Web App for electronic waste collection.",
     "ewastepas_full_desc": "Responsive web app for scheduling electronic waste pickups, built with React and Tailwind CSS.",
     "ewastepas_contribution": "Implemented user request forms and responsive pickup schedules.",
-
     "exp_dremaxtion_role": "Frontend Developer Intern",
     "exp_dremaxtion_company": "PT Dremaxtion Teknologi Internasional",
     "exp_dremaxtion_desc": "Implemented 3 landing pages from Figma designs using Vue.js, TypeScript, Tailwind CSS, Laravel, and Inertia.js. Built Dashboard Links features including auth, modals, dropdowns, and form validation, plus component refactoring.",
     "exp_dremaxtion_period": "Jun 2026 - Present",
-
     "exp_gdc_role": "Curriculum Developer, Cloud Computing",
     "exp_gdc_company": "Google Developer on Campus Universitas Pasundan",
     "exp_gdc_desc": "Authored 2 learning modules on Cloud Computing basics and Virtual Machine setup using Google Cloud Platform, and led hands-on deployment sessions for students.",
     "exp_gdc_period": "Oct 2024 - Sep 2025",
-
     "exp_bangkit_role": "Cloud Computing Cohort",
     "exp_bangkit_company": "Bangkit Academy led by Google, GoTo, & Traveloka",
     "exp_bangkit_desc": "Developed REST APIs in Node.js and deployed cloud services on Google Compute Engine for BabyGrowth, which received the Best Capstone Product award out of 200+ teams.",
     "exp_bangkit_period": "Feb 2024 - Jul 2024",
-
     "exp_smk_role": "Administrative Staff & IT Support",
     "exp_smk_company": "SMK Angkasa Lanud Husein Sastranegara Bandung",
     "exp_smk_desc": "Managed administrative records in Microsoft Excel, performed troubleshooting for Wi-Fi and PC software, and configured multi-PC shared printer networking.",
     "exp_smk_period": "Aug 2020 - Jul 2021",
-
     "edu_unpas_name": "Universitas Pasundan",
     "edu_unpas_degree": "Bachelor of Informatics Engineering",
-    "edu_unpas_period": "2021 - 2025",
-
+    "edu_unpas_period": "Sep 2021 - Jan 2026",
     "skills.build": "Frontend Engineering",
     "skills.data_apis": "Backend & APIs",
     "skills.cloud_devops": "Cloud & Infrastructure",

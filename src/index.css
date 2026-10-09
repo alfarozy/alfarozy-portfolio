@@ -2,28 +2,70 @@
 
 @theme {
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent-orange: var(--color-accent-orange);
+  --color-dark: var(--color-dark);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* theme tokens */
+:root,
 :root[data-theme="light"] {
-  --color-bg: #fcfcfc;
+  /* Branding tokens */
+  --color-primary: #2B7AEC;
+  --color-primary-hover: #1f68d9;
+  --color-primary-soft: rgba(43, 122, 236, 0.08);
+  --color-primary-contrast: #ffffff;
+
+  --color-secondary: #5DCEFF;
+  --color-secondary-soft: rgba(93, 206, 255, 0.15);
+
+  --color-accent-orange: #FF6900;
+  --color-accent-orange-hover: #e55e00;
+  --color-accent-orange-soft: rgba(255, 105, 0, 0.1);
+
+  --color-dark: #2B3232;
+
+  /* Surfaces & Background */
+  --color-bg: #f8fafc;
   --color-surface: #ffffff;
-  --color-surface-raised: #f4f4f5;
-  --color-fg: #0a0a0a;
-  --color-muted: #52525b;
-  --color-subtle: #a1a1aa;
-  --color-border: #e4e4e7;
-  --color-border-subtle: #f4f4f5;
-  --color-accent: #0a0a0a;
-  --color-accent-hover: #27272a;
-  --color-accent-soft: rgba(0, 0, 0, 0.05);
+  --color-surface-raised: #f1f5f9;
+
+  /* Text & Foreground based on Dark #2B3232 */
+  --color-fg: #2B3232;
+  --color-muted: #566464;
+  --color-subtle: #899797;
+
+  /* Borders harmonized with Dark */
+  --color-border: #e2e8ea;
+  --color-border-subtle: #edf2f4;
+
+  /* Accent tokens */
+  --color-accent: #2B7AEC;
+  --color-accent-hover: #1f68d9;
+  --color-accent-soft: rgba(43, 122, 236, 0.08);
   --color-accent-contrast: #ffffff;
-  --color-card-border: rgba(0, 0, 0, 0.08);
+  --color-card-border: rgba(43, 50, 50, 0.08);
 }
 
 :root[data-theme="dark"] {
+  /* Branding tokens */
+  --color-primary: #2B7AEC;
+  --color-primary-hover: #4a8ff5;
+  --color-primary-soft: rgba(43, 122, 236, 0.15);
+  --color-primary-contrast: #ffffff;
+
+  --color-secondary: #5DCEFF;
+  --color-secondary-soft: rgba(93, 206, 255, 0.2);
+
+  --color-accent-orange: #FF6900;
+  --color-accent-orange-hover: #ff7d1a;
+  --color-accent-orange-soft: rgba(255, 105, 0, 0.15);
+
+  --color-dark: #2B3232;
+
   --color-bg: #080808;
   --color-surface: #111111;
   --color-surface-raised: #181818;
@@ -32,11 +74,16 @@
   --color-subtle: #616161;
   --color-border: #222222;
   --color-border-subtle: #181818;
-  --color-accent: #ffffff;
-  --color-accent-hover: #e0e0e0;
-  --color-accent-soft: rgba(255, 255, 255, 0.08);
+  --color-accent: #5DCEFF;
+  --color-accent-hover: #8de1ff;
+  --color-accent-soft: rgba(93, 206, 255, 0.12);
   --color-accent-contrast: #000000;
   --color-card-border: rgba(255, 255, 255, 0.08);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
 }
 
 :root {
@@ -157,3 +204,15 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* cosmic subtle rocket floating/gliding keyframes */
+@keyframes cosmic-rocket {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(-12deg);
+  }
+  50% {
+    transform: translate(6px, -10px) rotate(-9deg);
+  }
+}
+
+

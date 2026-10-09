@@ -122,7 +122,7 @@ export const ProjectsSection = () => {
                 />
 
                 {currentProject.award && (
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-(--color-fg) text-(--color-bg) text-xs font-semibold font-mono shadow-md">
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-(--color-accent-orange) text-white text-xs font-semibold font-mono shadow-md">
                     <Award className="w-3.5 h-3.5" />
                     <span>{currentProject.award}</span>
                   </div>
@@ -147,7 +147,7 @@ export const ProjectsSection = () => {
                 </h3>
                 <div className="text-xs font-mono text-(--color-muted)">
                   <span>Role: </span>
-                  <strong className="text-(--color-fg) font-semibold">{currentProject.role}</strong>
+                  <strong className="text-(--color-primary) font-semibold">{currentProject.role}</strong>
                 </div>
               </div>
 
@@ -179,7 +179,7 @@ export const ProjectsSection = () => {
                     href={currentProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-(--color-fg) text-(--color-bg) font-semibold text-xs hover:opacity-90 transition-opacity min-h-[44px] shadow-xs"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-(--color-primary) text-white font-semibold text-xs hover:opacity-90 shadow-sm shadow-blue-500/20 transition-all min-h-[44px]"
                   >
                     <span>Visit Live Site</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -201,7 +201,7 @@ export const ProjectsSection = () => {
 
                 <button
                   onClick={() => setActiveModalProject(currentProject)}
-                  className="px-4 py-3 rounded-xl border border-(--color-border) text-(--color-muted) hover:text-(--color-fg) hover:bg-(--color-surface-raised) text-xs font-semibold transition-colors min-h-[44px] cursor-pointer"
+                  className="px-4 py-3 rounded-xl border border-(--color-border) text-(--color-muted) hover:text-(--color-primary) hover:border-(--color-primary)/50 hover:bg-(--color-surface-raised) text-xs font-semibold transition-colors min-h-[44px] cursor-pointer"
                 >
                   Full Details
                 </button>
@@ -218,7 +218,7 @@ export const ProjectsSection = () => {
             onClick={() => setSelectedIndex(idx)}
             className={`transition-all rounded-full cursor-pointer ${
               selectedIndex === idx
-                ? "w-8 h-2 bg-(--color-fg)"
+                ? "w-8 h-2 bg-(--color-primary)"
                 : "w-2 h-2 bg-(--color-border) hover:bg-(--color-muted)"
             }`}
             aria-label={`Go to project ${idx + 1}`}

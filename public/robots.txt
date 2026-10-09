@@ -1,6 +1,6 @@
-# robots.txt for van-portfolio
+# robots.txt for alfarozy-portfolio
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://rivan.me/sitemap.xml
+Sitemap: https://alfarozy.my.id/sitemap.xml

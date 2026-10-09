@@ -1,6 +1,6 @@
 import { SpotlightCard } from "@/components/SpotlightCard";
 import { educationData } from "@/config";
-import { Award, GraduationCap } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export const EducationSection = () => {
@@ -11,18 +11,18 @@ export const EducationSection = () => {
       <div className="space-y-2 max-w-2xl">
         <div className="inline-flex items-center gap-2 text-caption text-(--color-muted) font-mono">
           <GraduationCap
-            className="w-3.5 h-3.5 text-(--color-fg)"
+            className="w-3.5 h-3.5 text-(--color-primary)"
             aria-hidden="true"
           />
-          <span>{t("education.label", "PENDIDIKAN")}</span>
+          <span>{t("education.label", "EDUCATION")}</span>
         </div>
         <h2 className="text-headline font-bold text-(--color-fg)">
-          {t("education.heading", "Pendidikan & Penghargaan")}
+          {t("education.heading", "Education")}
         </h2>
         <p className="text-body text-sm sm:text-base text-(--color-muted)">
           {t(
             "education.intro",
-            "Pendidikan formal dan program pelatihan teknis yang telah saya selesaikan.",
+            "Formal education and academic background.",
           )}
         </p>
       </div>
@@ -31,72 +31,50 @@ export const EducationSection = () => {
         {educationData.map((edu) => (
           <SpotlightCard
             key={edu.id}
-            className="p-4 sm:p-6 md:p-7 space-y-4 flex flex-col justify-between h-full"
+            className="p-5 sm:p-6 md:p-7 space-y-5 flex flex-col justify-between h-full"
           >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-mono font-semibold text-(--color-fg) uppercase tracking-wider">
-                  {t(edu.institution)}
-                </span>
-                <span className="font-mono text-xs text-(--color-muted) shrink-0">
-                  {t(edu.period)}
-                </span>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-(--color-surface-raised) border border-(--color-border) p-1 flex items-center justify-center shrink-0 overflow-hidden">
+                  <img
+                    src={edu.logo}
+                    alt={t(edu.institution)}
+                    className="w-full h-full object-contain "
+                  />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-xs font-mono font-semibold text-(--color-fg) uppercase tracking-wider block truncate">
+                    {t(edu.institution)}
+                  </span>
+                  <span className="font-mono text-xs text-(--color-muted)">
+                    {t(edu.period)}
+                  </span>
+                </div>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold text-(--color-fg)">
-                {t(edu.degree)}
-              </h3>
-
-              <p className="text-body text-sm text-(--color-muted) leading-relaxed">
-                Focused on software engineering, web application development,
-                algorithms, and cloud computing.
-              </p>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-(--color-fg)">
+                  {t(edu.degree)}
+                </h3>
+                <p className="text-body text-sm text-(--color-muted) leading-relaxed mt-2">
+                  {t(edu.description)}
+                </p>
+              </div>
             </div>
 
             <div className="pt-4 border-t border-(--color-border) flex items-center justify-between gap-2">
               <span className="text-xs font-mono text-(--color-muted)">
-                Status
+                Location
               </span>
-              <span className="font-mono text-xs font-semibold text-(--color-fg) px-3 py-1 rounded-md border border-(--color-border) bg-(--color-surface-raised)">
-                Graduate (S.T)
+              <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-(--color-fg) px-3 py-1 rounded-md border border-(--color-border) bg-(--color-surface-raised)">
+                <MapPin className="w-3.5 h-3.5 text-(--color-primary)" aria-hidden="true" />
+                <span>{edu.location}</span>
               </span>
             </div>
           </SpotlightCard>
         ))}
-
-        <SpotlightCard className="p-4 sm:p-6 md:p-7 space-y-4 flex flex-col justify-between h-full">
-          <div className="space-y-3">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-mono font-semibold text-(--color-fg) uppercase tracking-wider">
-                Bangkit Academy (Google, GoTo, Traveloka)
-              </span>
-              <span className="font-mono text-xs text-(--color-muted) shrink-0">
-                Feb 2024 - Jul 2024
-              </span>
-            </div>
-
-            <h3 className="text-lg sm:text-xl font-bold text-(--color-fg)">
-              Cloud Computing Graduate
-            </h3>
-
-            <p className="text-body text-sm text-(--color-muted) leading-relaxed">
-              Comprehensive training in cloud architecture and backend APIs on
-              Google Cloud Platform. Developed backend for BabyGrowth and
-              received Best Capstone Product.
-            </p>
-          </div>
-
-          <div className="pt-4 border-t border-(--color-border) flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <span className="text-xs font-mono text-(--color-muted)">
-              Distinction
-            </span>
-            <span className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-(--color-fg) px-3 py-1 rounded-md border border-(--color-border) bg-(--color-surface-raised)">
-              <Award className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-              <span>Best Capstone (Top of 200+ Teams)</span>
-            </span>
-          </div>
-        </SpotlightCard>
       </div>
     </div>
   );
 };
+

@@ -5,13 +5,12 @@
     "projects_desc": "Proyek dan sistem yang pernah saya kembangkan",
     "journey_desc": "Pengalaman kerja dan rekam jejak profesional",
     "skills_desc": "Teknologi dan keterampilan teknis",
-    "foundations_desc": "Latar belakang pendidikan",
+    "foundations_desc": "Latar belakang pendidikan dan akademis",
     "nav_projects": "Proyek",
     "nav_journey": "Pengalaman",
     "nav_skills": "Keahlian",
-    "nav_foundations": "Pendidikan"
+    "nav_foundations": "Edukasi"
   },
-
   "hero": {
     "available": "Terbuka untuk peluang kerja",
     "greeting": "Halo, saya",
@@ -21,11 +20,19 @@
     "cta_work": "Lihat Proyek",
     "cta_contact": "Hubungi Saya",
     "cta_cv": "Unduh CV",
-    "location": "Bandung, Indonesia",
+    "location": "Kota Padang, Indonesia",
+    "experience": "5+ Tahun Pengalaman",
     "proof_bangkit": "Best Capstone Product (Bangkit Academy 2024)",
     "proof_focus": "Frontend, Cloud Backend, & IT Support"
   },
-
+  "about": {
+    "label": "TENTANG SAYA",
+    "heading": "Membangun Solusi, Memberikan Dampak Nyata",
+    "location": "Kota Padang, Indonesia",
+    "p1": "Saya adalah seorang fresh graduate Teknik Informatika Universitas Pasundan, berasal dari Riau, Indonesia. Memiliki minat mendalam pada Cyber Security, Web Technology, dan Open Source, saya mulai berkecimpung di dunia pemrograman sejak tahun 2019.",
+    "p2": "Saya berkomitmen membangun solusi digital adaptif yang memberdayakan UMKM di Indonesia agar dapat bertumbuh secara berkelanjutan. Saat ini memimpin pengembangan strategis di Tavio.id, Portavia, dan Nyummi.com, fokus saya berpusat pada mewujudkan ide menjadi inisiatif terukur melalui inovasi teknologi, pengembangan ekosistem, serta eksekusi operasional yang solid.",
+    "motto": "Better Life, Greater Impact. Be a blessing to the universe."
+  },
   "projects": {
     "label": "PROYEK",
     "heading": "Proyek Terpilih",
@@ -38,7 +45,6 @@
     "slide_count": "Proyek",
     "intro": "Koleksi proyek website, backend API, dan aplikasi yang pernah saya kerjakan."
   },
-
   "project_detail": {
     "overview": "Ringkasan",
     "contribution": "Kontribusi Saya",
@@ -56,25 +62,21 @@
     "role_label": "Peran",
     "next_project": "Proyek Berikutnya"
   },
-
   "journey": {
     "label": "PENGALAMAN",
     "heading": "Pengalaman Kerja",
     "intro": "Rekam jejak pengalaman kerja di bidang pengembangan web, pelatihan cloud, dan operasional IT."
   },
-
   "skills_section": {
     "label": "KETERAMPILAN TEKNIS",
     "heading": "Keahlian & Teknologi",
     "intro": "Teknologi dan tools yang saya gunakan dalam pengembangan web, cloud computing, dan dukungan teknis IT."
   },
-
   "education": {
-    "label": "PENDIDIKAN",
-    "heading": "Pendidikan & Penghargaan",
-    "intro": "Pendidikan formal dan program pelatihan teknis yang telah saya selesaikan."
+    "label": "EDUKASI",
+    "heading": "Edukasi",
+    "intro": "Riwayat pendidikan formal dan latar belakang akademik."
   },
-
   "contact": {
     "label": "KONTAK",
     "heading_line1": "Mari berdiskusi.",
@@ -83,65 +85,52 @@
     "cv_cta": "Unduh CV",
     "available": "Terbuka untuk posisi full-time dan proyek kolaborasi"
   },
-
   "nav": {
     "overview": "Ringkasan",
     "work": "Proyek",
     "journey": "Pengalaman",
     "skills": "Keahlian",
-    "foundations": "Pendidikan",
+    "foundations": "Edukasi",
     "contact": "Kontak"
   },
-
   "sidebar": {
     "subtitle": "Web & Cloud Developer"
   },
-
   "data": {
     "tavio_desc": "Platform link-in-bio commerce untuk kreator konten dan bisnis digital.",
     "tavio_full_desc": "Mengembangkan antarmuka frontend Tavio.id versi 1 menggunakan React.js, Laravel, dan Inertia.js yang saat ini sudah berjalan di production. Mengerjakan fitur manajemen tautan, katalog produk, serta memberikan masukan untuk pengembangan versi 2.",
     "tavio_contribution": "Membangun seluruh tampilan frontend versi 1, mengintegrasikan frontend dengan API backend, dan membantu perancangan kebutuhan teknis versi 2.",
-
     "sixsafe_desc": "Platform pelatihan kesadaran keamanan siber (cybersecurity awareness).",
     "sixsafe_full_desc": "Mengimplementasikan halaman landing page, dashboard admin, dan dashboard peserta pelatihan menggunakan template Laravel Blade. Memberikan saran perbaikan antarmuka selama pengujian fitur.",
     "sixsafe_contribution": "Membangun antarmuka landing page dan dashboard yang responsif dan mudah digunakan oleh peserta pelatihan.",
-
     "babygrowth_desc": "Aplikasi pemantauan tumbuh kembang anak pada program Bangkit Academy 2024.",
     "babygrowth_full_desc": "Mengembangkan REST API menggunakan Node.js dan autentikasi JWT untuk fitur rekomendasi makanan anak, serta melakukan deployment ke Google Compute Engine dan Cloud Storage. Berhasil meraih penghargaan Best Capstone Product dari 200+ tim.",
     "babygrowth_contribution": "Membuat endpoint REST API backend, mengelola autentikasi JWT, dan melakukan konfigurasi deployment di Google Cloud Platform.",
-
     "apotek_desc": "Sistem informasi manajemen stok dan penjualan apotek.",
     "apotek_full_desc": "Berperan sebagai koordinator tim proyek dan mengembangkan antarmuka web responsif untuk pencatatan inventaris obat dan transaksi penjualan.",
     "apotek_contribution": "Mengkoordinasikan tim dan mengimplementasikan tampilan web manajemen stok serta rekap penjualan.",
-
     "ewastepas_desc": "Progressive Web App untuk layanan penjemputan sampah elektronik.",
     "ewastepas_full_desc": "Aplikasi web responsif untuk pengelolaan dan penjadwalan penjemputan sampah elektronik berbasis React dan Tailwind CSS.",
     "ewastepas_contribution": "Membuat formulir permohonan penjemputan sampah dan halaman jadwal yang responsif.",
-
     "exp_dremaxtion_role": "Frontend Developer Intern",
     "exp_dremaxtion_company": "PT Dremaxtion Teknologi Internasional",
     "exp_dremaxtion_desc": "Mengimplementasikan 3 halaman landing page dari desain Figma menggunakan Vue.js, TypeScript, Tailwind CSS, Laravel, dan Inertia.js. Mengerjakan fitur Dashboard Links mencakup authentication, modal, dropdown, dan form validation, serta membuat reusable component.",
     "exp_dremaxtion_period": "Jun 2026 - Sekarang",
-
     "exp_gdc_role": "Curriculum Developer, Cloud Computing",
     "exp_gdc_company": "Google Developer on Campus Universitas Pasundan",
     "exp_gdc_desc": "Menyusun 2 modul pembelajaran pengenalan Cloud Computing dan konfigurasi Virtual Machine menggunakan Google Cloud Platform, serta memandu sesi praktik deployment langsung bagi mahasiswa.",
     "exp_gdc_period": "Okt 2024 - Sep 2025",
-
     "exp_bangkit_role": "Cloud Computing Cohort",
     "exp_bangkit_company": "Bangkit Academy led by Google, GoTo, & Traveloka",
     "exp_bangkit_desc": "Mengembangkan REST API menggunakan Node.js dan melakukan deployment backend di Google Compute Engine untuk aplikasi BabyGrowth. Berhasil meraih penghargaan Best Capstone Product dari 200+ tim.",
     "exp_bangkit_period": "Feb 2024 - Jul 2024",
-
     "exp_smk_role": "Staff Administrasi & IT Support",
     "exp_smk_company": "SMK Angkasa Lanud Husein Sastranegara Bandung",
     "exp_smk_desc": "Mengelola data administrasi Tata Usaha menggunakan Microsoft Excel, menangani troubleshooting koneksi Wi-Fi dan instalasi software PC, serta menghubungkan printer bersama untuk beberapa komputer.",
     "exp_smk_period": "Agt 2020 - Jul 2021",
-
     "edu_unpas_name": "Universitas Pasundan",
     "edu_unpas_degree": "Sarjana Teknik Informatika",
-    "edu_unpas_period": "2021 - 2025",
-
+    "edu_unpas_period": "Sep 2021 - Jan 2026",
     "skills.build": "Pengembangan Frontend",
     "skills.data_apis": "Backend & API",
     "skills.cloud_devops": "Cloud & Infrastruktur",

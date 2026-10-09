@@ -6,29 +6,16 @@ export interface SkillCategory {
 }
 
 export const skillsData: SkillCategory[] = [
+
   {
     id: 1,
-    category: "Frontend Engineering",
-    key: "skills.build",
-    skills: [
-      "React.js",
-      "Vue.js",
-      "TypeScript",
-      "JavaScript",
-      "Tailwind CSS",
-      "Inertia.js",
-      "HTML5 / CSS3",
-      "Responsive UI",
-    ],
-  },
-  {
-    id: 2,
     category: "Backend & APIs",
     key: "skills.data_apis",
     skills: [
       "Node.js",
       "Express.js",
       "Laravel",
+      "GO",
       "RESTful API",
       "JWT Authentication",
       "MySQL",
@@ -36,7 +23,7 @@ export const skillsData: SkillCategory[] = [
     ],
   },
   {
-    id: 3,
+    id: 2,
     category: "Cloud & Infrastructure",
     key: "skills.cloud_devops",
     skills: [
@@ -46,19 +33,6 @@ export const skillsData: SkillCategory[] = [
       "Linux / Shell",
       "Docker",
       "Git / GitHub / GitLab",
-    ],
-  },
-  {
-    id: 4,
-    category: "IT Operations & Support",
-    key: "skills.tools_support",
-    skills: [
-      "Hardware Troubleshooting",
-      "Network Configuration",
-      "Software Installation",
-      "Microsoft Excel",
-      "Technical Documentation",
-      "Figma",
     ],
   },
 ];

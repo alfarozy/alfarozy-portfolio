@@ -14,6 +14,13 @@ export default defineConfig({
     },
   },
   plugins: [react(), tailwindcss()],
+  optimizeDeps: {
+    include: ["lucide-react"],
+  },
+  server: {
+    host: true,
+    port: 5173,
+  },
   build: {
     target: "esnext",
     minify: "terser",

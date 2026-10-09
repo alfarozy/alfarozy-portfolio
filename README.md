@@ -1,8 +1,8 @@
-# Muhamad Rivan Sahronie — Portfolio
+# Muhammad Alfarozi — Portfolio
 
 Personal portfolio website showcasing web development projects, work experience, and technical skills.
 
-Live site: [rivan.me](https://rivan.me)
+Live site: [alfarozy.my.id](https://alfarozy.my.id)
 
 ## Tech Stack
 
@@ -27,3 +27,7 @@ pnpm build
 # preview production build
 pnpm preview
 ```
+
+## Credits
+
+- Original template & design by [Rivan](https://github.com/rrivnsh)

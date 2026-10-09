@@ -4,7 +4,6 @@ import { useJakartaTime } from "@/hooks";
 import {
   Sun,
   Moon,
-  FileDown,
   ArrowUpRight,
   GraduationCap,
   MapPin,
@@ -18,12 +17,11 @@ import {
   PanelLeftOpen,
 } from "lucide-react";
 import { socialLinks } from "@/config";
-import profileImg from "@/assets/images/ppvan.png";
-
-import cvEn from "@/assets/cv/CV_M Rivan Sahronie.pdf";
-import cvId from "@/assets/cv/CV_Muhamad Rivan Sahronie.pdf";
+import profileImg from "@/assets/images/pp-alfarozy.png";
+import logoImg from "@/assets/images/logo.png";
 
 interface SidebarProps {
+
   activeSection?: string;
   onNavigateSection?: (sectionId: string) => void;
   isCollapsed?: boolean;
@@ -36,15 +34,9 @@ export const Sidebar = ({
   isCollapsed = false,
   onToggleCollapse,
 }: SidebarProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { toggleTheme, theme } = useTheme();
   const jakartaTime = useJakartaTime();
-
-  const cvUrl = i18n.language === "en" ? cvEn : cvId;
-  const cvFileName =
-    i18n.language === "en"
-      ? "CV_M_Rivan_Sahronie.pdf"
-      : "CV_Muhamad_Rivan_Sahronie.pdf";
 
   const navLinks = [
     { id: "hero", label: t("nav.overview", "Overview"), icon: Compass },
@@ -66,11 +58,6 @@ export const Sidebar = ({
     }
   };
 
-  const toggleLanguage = () => {
-    const nextLang = i18n.language === "en" ? "id" : "en";
-    i18n.changeLanguage(nextLang);
-  };
-
   return (
     <>
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-(--color-bg)/95 backdrop-blur-md border-b border-(--color-border) px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -79,29 +66,19 @@ export const Sidebar = ({
           className="flex items-center gap-2.5 text-left focus-visible:outline-2 cursor-pointer"
         >
           <img
-            src={profileImg}
-            alt="M. Rivan Sahronie"
-            className="w-8 h-8 rounded-lg object-cover border border-(--color-border)"
+            src={logoImg}
+            alt="Muhammad Alfarozi"
+            className="w-8 h-8 rounded-lg object-contain"
           />
           <div>
             <span className="text-sm font-bold tracking-tight text-(--color-fg) block">
-              M. Rivan Sahronie
-            </span>
-            <span className="text-[10px] font-mono text-(--color-muted)">
-              Informatics · Unpas
+              Alfarozi
             </span>
           </div>
         </button>
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={toggleLanguage}
-            className="px-2.5 py-1 text-xs font-mono font-semibold rounded-md border border-(--color-border) bg-(--color-surface) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
-            aria-label="Toggle language"
-          >
-            {i18n.language.toUpperCase()}
-          </button>
 
+        <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-md border border-(--color-border) bg-(--color-surface) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
@@ -113,9 +90,8 @@ export const Sidebar = ({
       </header>
 
       <aside
-        className={`hidden lg:flex flex-col justify-between fixed top-0 left-0 bottom-0 bg-(--color-surface) border-r border-(--color-border) z-40 transition-all duration-300 ${
-          isCollapsed ? "w-20 p-4" : "w-72 xl:w-80 p-6"
-        }`}
+        className={`hidden lg:flex flex-col justify-between fixed top-0 left-0 bottom-0 bg-(--color-surface) border-r border-(--color-border) z-40 transition-all duration-300 ${isCollapsed ? "w-20 p-4" : "w-72 xl:w-80 p-6"
+          }`}
         aria-label="Sidebar Navigation"
       >
         <div className="space-y-6">
@@ -125,12 +101,11 @@ export const Sidebar = ({
                 Portfolio
               </span>
             )}
-            
+
             <button
               onClick={onToggleCollapse}
-              className={`p-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-all cursor-pointer ${
-                isCollapsed ? "mx-auto" : "ml-auto"
-              }`}
+              className={`p-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-all cursor-pointer ${isCollapsed ? "mx-auto" : "ml-auto"
+                }`}
               aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
               title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
             >
@@ -144,17 +119,16 @@ export const Sidebar = ({
 
           <div className={`space-y-4 ${isCollapsed ? "text-center" : ""}`}>
             <div className="relative inline-block">
-              <div className={`rounded-xl overflow-hidden border border-(--color-border) transition-all ${
-                isCollapsed ? "w-11 h-11 mx-auto" : "w-14 h-14"
-              }`}>
+              <div className={`rounded-xl overflow-hidden border border-(--color-border) transition-all ${isCollapsed ? "w-11 h-11 mx-auto" : "w-14 h-14"
+                }`}>
                 <img
                   src={profileImg}
-                  alt="Muhamad Rivan Sahronie"
+                  alt="Muhammad Alfarozi"
                   className="w-full h-full object-cover"
                 />
               </div>
               <span
-                className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-(--color-fg) border-2 border-(--color-surface)"
+                className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-(--color-surface) shadow-xs"
                 title="Available for opportunities"
               />
             </div>
@@ -162,7 +136,7 @@ export const Sidebar = ({
             {!isCollapsed && (
               <div className="space-y-1">
                 <h1 className="text-base font-bold text-(--color-fg) leading-tight">
-                  M. Rivan Sahronie
+                  Muhammad Alfarozi
                 </h1>
                 <p className="text-xs text-(--color-muted) font-medium">
                   Informatics Graduate
@@ -177,8 +151,8 @@ export const Sidebar = ({
               <div className="p-2.5 rounded-lg border border-(--color-border) bg-(--color-surface-raised) space-y-1 text-xs text-(--color-muted) font-mono">
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3 h-3 text-(--color-fg)" />
-                    <span>Bandung, ID</span>
+                    <MapPin className="w-3 h-3 text-(--color-primary)" />
+                    <span>Kota Padang, ID</span>
                   </span>
                   <span className="text-[11px] text-(--color-subtle)">WIB</span>
                 </div>
@@ -203,21 +177,19 @@ export const Sidebar = ({
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`w-full flex items-center ${
-                    isCollapsed ? "justify-center p-2.5" : "justify-between px-3.5 py-2.5"
-                  } rounded-xl text-xs font-medium transition-all cursor-pointer group ${
-                    isActive
-                      ? "bg-(--color-fg) text-(--color-bg) font-semibold shadow-xs"
+                  className={`w-full flex items-center ${isCollapsed ? "justify-center p-2.5" : "justify-between px-3.5 py-2.5"
+                    } rounded-xl text-xs font-medium transition-all cursor-pointer group ${isActive
+                      ? "bg-(--color-primary) text-white font-semibold shadow-sm shadow-blue-500/20"
                       : "text-(--color-muted) hover:text-(--color-fg) hover:bg-(--color-surface-raised)"
-                  }`}
+                    }`}
                   title={isCollapsed ? link.label : undefined}
                 >
                   <div className="flex items-center gap-2.5">
-                    <IconComponent className={`w-4 h-4 ${isActive ? "text-(--color-bg)" : "text-(--color-fg)"}`} />
+                    <IconComponent className={`w-4 h-4 ${isActive ? "text-white" : "text-(--color-fg) group-hover:text-(--color-primary)"}`} />
                     {!isCollapsed && <span>{link.label}</span>}
                   </div>
                   {!isCollapsed && (
-                    <ArrowUpRight className={`w-3 h-3 transition-opacity ${isActive ? "opacity-90" : "opacity-0 group-hover:opacity-60"}`} />
+                    <ArrowUpRight className={`w-3 h-3 transition-opacity ${isActive ? "opacity-100 text-white" : "opacity-0 group-hover:opacity-80 group-hover:text-(--color-primary)"}`} />
                   )}
                 </button>
               );
@@ -226,25 +198,30 @@ export const Sidebar = ({
         </div>
 
         <div className="space-y-3 pt-4 border-t border-(--color-border)">
-          <div className={`flex items-center gap-2 ${isCollapsed ? "flex-col" : "justify-between"}`}>
-            <button
-              onClick={toggleLanguage}
-              className={`p-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-xs font-mono font-semibold text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer text-center ${
-                isCollapsed ? "w-full" : "flex-1"
-              }`}
-              aria-label="Switch Language"
-            >
-              {i18n.language.toUpperCase()}
-            </button>
-
+          <div className="flex items-center">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer flex items-center justify-center ${
-                isCollapsed ? "w-full" : "min-w-[36px]"
-              }`}
+              className={`p-2.5 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer flex items-center justify-center w-full min-h-[36px]`}
               aria-label="Toggle Theme"
+              title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
             >
-              {theme === "light" ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
+              {isCollapsed ? (
+                theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />
+              ) : (
+                <div className="flex items-center gap-2 text-xs font-mono font-medium">
+                  {theme === "light" ? (
+                    <>
+                      <Moon className="w-3.5 h-3.5" />
+                      <span>Dark Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sun className="w-3.5 h-3.5" />
+                      <span>Light Mode</span>
+                    </>
+                  )}
+                </div>
+              )}
             </button>
           </div>
 
@@ -265,18 +242,6 @@ export const Sidebar = ({
               ))}
             </div>
           )}
-
-          <a
-            href={cvUrl}
-            download={cvFileName}
-            className={`inline-flex items-center justify-center gap-2 rounded-xl bg-(--color-fg) text-(--color-bg) text-xs font-semibold hover:opacity-90 transition-all cursor-pointer shadow-xs ${
-              isCollapsed ? "w-full p-2.5" : "w-full px-4 py-2.5"
-            }`}
-            title="Download CV"
-          >
-            <FileDown className="w-3.5 h-3.5" />
-            {!isCollapsed && <span>Unduh CV</span>}
-          </a>
         </div>
       </aside>
     </>

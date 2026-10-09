@@ -7,14 +7,11 @@ import cvEn from "@/assets/cv/CV_M Rivan Sahronie.pdf";
 import cvId from "@/assets/cv/CV_Muhamad Rivan Sahronie.pdf";
 
 export const ContactSection = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
-  const cvUrl = i18n.language === "en" ? cvEn : cvId;
-  const cvFileName =
-    i18n.language === "en"
-      ? "CV_M_Rivan_Sahronie.pdf"
-      : "CV_Muhamad_Rivan_Sahronie.pdf";
+  const cvUrl = cvEn;
+  const cvFileName = "CV_Muhammad_Alfarozi.pdf";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contactData.email);
@@ -48,19 +45,19 @@ export const ContactSection = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-full">
             <a
               href={`mailto:${contactData.email}`}
-              className="text-sm sm:text-xl md:text-2xl font-mono font-bold text-(--color-fg) hover:underline transition-all break-all"
+              className="text-sm sm:text-xl md:text-2xl font-mono font-bold text-(--color-fg) hover:text-(--color-primary) hover:underline transition-all break-all"
             >
               {contactData.email}
             </a>
 
             <button
               onClick={handleCopyEmail}
-              className="p-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-fg) transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+              className="p-2 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-muted) hover:text-(--color-primary) transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
               aria-label="Copy email address"
               title="Copy email"
             >
               {copied ? (
-                <Check className="w-4 h-4 text-(--color-fg)" />
+                <Check className="w-4 h-4 text-(--color-primary)" />
               ) : (
                 <Copy className="w-4 h-4" />
               )}
@@ -70,7 +67,7 @@ export const ContactSection = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <a
               href={`mailto:${contactData.email}`}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-(--color-fg) text-(--color-bg) font-semibold text-xs hover:opacity-90 transition-all cursor-pointer min-h-[44px] shadow-xs"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-(--color-primary) text-white font-semibold text-xs hover:opacity-90 shadow-sm shadow-blue-500/20 transition-all cursor-pointer min-h-[44px]"
             >
               <Mail className="w-4 h-4" aria-hidden="true" />
               <span>{t("contact.email_cta", "Kirim Email")}</span>
@@ -79,10 +76,10 @@ export const ContactSection = () => {
             <a
               href={cvUrl}
               download={cvFileName}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-(--color-surface-raised) text-(--color-fg) font-semibold text-xs border border-(--color-border) hover:bg-(--color-surface) transition-colors cursor-pointer min-h-[44px]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-(--color-surface-raised) text-(--color-fg) font-semibold text-xs border border-(--color-border) hover:bg-(--color-surface) hover:border-(--color-primary)/50 hover:text-(--color-primary) transition-colors cursor-pointer min-h-[44px]"
             >
               <FileDown className="w-4 h-4 text-(--color-fg)" aria-hidden="true" />
-              <span>{t("contact.cv_cta", "Unduh CV")} ({i18n.language.toUpperCase()})</span>
+              <span>{t("contact.cv_cta", "Download CV")}</span>
             </a>
           </div>
         </div>

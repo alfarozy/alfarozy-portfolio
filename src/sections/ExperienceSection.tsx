@@ -103,7 +103,7 @@ export const ExperienceSection = () => {
 
                 <div className="flex items-center gap-2.5 text-base font-mono text-(--color-muted) pt-1">
                   <Building2 className="w-4 h-4 text-(--color-fg)" />
-                  <span className="font-semibold text-(--color-fg)">{t(selectedExp.company)}</span>
+                  <span className="font-semibold text-(--color-primary)">{t(selectedExp.company)}</span>
                 </div>
               </div>
 
@@ -134,7 +134,7 @@ export const ExperienceSection = () => {
                         key={tag}
                         className="inline-flex items-center gap-1.5 text-xs font-mono px-3.5 py-1.5 rounded-lg border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg)"
                       >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-(--color-muted)" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-(--color-secondary)" />
                         <span>{tag}</span>
                       </span>
                     ))}
@@ -153,7 +153,7 @@ export const ExperienceSection = () => {
             onClick={() => setSelectedIndex(idx)}
             className={`transition-all rounded-full cursor-pointer ${
               selectedIndex === idx
-                ? "w-8 h-2 bg-(--color-fg)"
+                ? "w-8 h-2 bg-(--color-primary)"
                 : "w-2 h-2 bg-(--color-border) hover:bg-(--color-muted)"
             }`}
             aria-label={`Go to milestone ${idx + 1}`}
