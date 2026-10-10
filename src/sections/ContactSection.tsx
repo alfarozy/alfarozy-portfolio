@@ -3,8 +3,7 @@ import { contactData, socialLinks } from "@/config";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight, Mail, FileDown, MessageSquare, Copy, Check } from "lucide-react";
 
-import cvEn from "@/assets/cv/CV_M Rivan Sahronie.pdf";
-import cvId from "@/assets/cv/CV_Muhamad Rivan Sahronie.pdf";
+import cvEn from "@/assets/cv/CV_Muhammad Alfarozi.pdf";
 
 export const ContactSection = () => {
   const { t } = useTranslation();
