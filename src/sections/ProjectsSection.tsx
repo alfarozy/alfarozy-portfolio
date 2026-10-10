@@ -63,11 +63,10 @@ export const ProjectsSection = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all cursor-pointer shrink-0 border focus-visible:outline-2 ${
-                isSelected
-                  ? "bg-(--color-primary) text-white border-(--color-primary) shadow-sm shadow-blue-500/25"
-                  : "bg-(--color-surface) text-(--color-muted) border-(--color-border) hover:border-(--color-primary)/50 hover:text-(--color-fg)"
-              }`}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all cursor-pointer shrink-0 border focus-visible:outline-2 ${isSelected
+                ? "bg-(--color-primary) text-white border-(--color-primary) shadow-sm shadow-blue-500/25"
+                : "bg-(--color-surface) text-(--color-muted) border-(--color-border) hover:border-(--color-primary)/50 hover:text-(--color-fg)"
+                }`}
             >
               {category === "All" ? t("projects.all", "All Projects") : category}
             </button>
@@ -106,7 +105,7 @@ export const ProjectsSection = () => {
                         <span className="w-2 h-2 rounded-full bg-zinc-500/30" />
                       </div>
                       <span className="truncate max-w-[130px] opacity-70">
-                        {project.title.toLowerCase().replace(/\s+/g, "")}.web
+                        {new URL(project.link).hostname.replace(/^www\./, "")}
                       </span>
                     </div>
 
@@ -146,7 +145,6 @@ export const ProjectsSection = () => {
                     >
                       {project.title}
                     </h3>
-
                     <p className="text-body text-xs sm:text-sm text-(--color-muted) line-clamp-2 leading-relaxed">
                       {t(project.desc)}
                     </p>
@@ -184,9 +182,9 @@ export const ProjectsSection = () => {
                     </a>
                   )}
 
-                  {project.repo && (
+                  {project!.repo && (
                     <a
-                      href={project.repo}
+                      href={project!.repo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-xl border border-(--color-border) bg-(--color-surface-raised) text-(--color-fg) hover:bg-(--color-surface) transition-colors min-h-[38px] min-w-[38px] flex items-center justify-center"

@@ -1,4 +1,11 @@
-import unpasLogo from "@/assets/educations/unpas.png";
+import {
+  etafiliaLogo,
+  cyberArmyLogo,
+  unpasLogo,
+  bangkitLogo,
+  baitLogo,
+  pasamandevLogo,
+} from "@/assets/experience";
 
 export interface ExperienceItem {
   id: number;
@@ -22,6 +29,7 @@ export const experienceData: ExperienceItem[] = [
     location: "data.exp_etafilia_location",
     desc: "data.exp_etafilia_desc",
     tech: ["Product Leadership", "System Architecture", "Laravel", "React.js", "Financial Systems", "Fullstack Development"],
+    logo: etafiliaLogo,
     initials: "ET",
     isCurrent: true,
   },
@@ -33,6 +41,7 @@ export const experienceData: ExperienceItem[] = [
     location: "data.exp_cyberarmy_location",
     desc: "data.exp_cyberarmy_desc",
     tech: ["Laravel", "REST APIs", "PHP", "MySQL", "API Architecture", "Performance Optimization"],
+    logo: cyberArmyLogo,
     initials: "CA",
   },
   {
@@ -42,7 +51,7 @@ export const experienceData: ExperienceItem[] = [
     period: "data.exp_gdgoc_period",
     location: "data.exp_gdgoc_location",
     desc: "data.exp_gdgoc_desc",
-    tech: ["Web Development", "JavaScript", "Developer Workshops", "Community Mentoring"],
+    tech: ["Web Development", "Software Development", "Laravel", "Technical Collaboration"],
     logo: unpasLogo,
     initials: "GD",
   },
@@ -54,6 +63,7 @@ export const experienceData: ExperienceItem[] = [
     location: "data.exp_bangkit_location",
     desc: "data.exp_bangkit_desc",
     tech: ["Google Cloud Platform (GCP)", "DevOps", "Docker", "Node.js", "REST APIs", "Cloud Computing"],
+    logo: bangkitLogo,
     initials: "BK",
   },
   {
@@ -64,6 +74,7 @@ export const experienceData: ExperienceItem[] = [
     location: "data.exp_baitsolution_location",
     desc: "data.exp_baitsolution_desc",
     tech: ["Laravel", "PHP", "MySQL", "Web Development", "Client Solutions"],
+    logo: baitLogo,
     initials: "BS",
   },
   {
@@ -74,6 +85,7 @@ export const experienceData: ExperienceItem[] = [
     location: "data.exp_pasamandev_location",
     desc: "data.exp_pasamandev_desc",
     tech: ["Web Development", "Git & GitHub", "Programming Fundamentals", "Collaboration"],
+    logo: pasamandevLogo,
     initials: "PD",
   },
 ];

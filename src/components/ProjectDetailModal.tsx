@@ -315,9 +315,9 @@ const ProjectDetailModal = ({
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
-                {project.repo && (
+                {project!.repo && (
                   <a
-                    href={project.repo}
+                    href={project!.repo}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-(--color-surface-raised) text-(--color-fg) border border-(--color-border) text-xs font-semibold rounded-xl hover:bg-(--color-surface) transition-colors min-h-[44px]"

@@ -1,7 +1,7 @@
 {
   "overview": {
     "welcome": "Welcome",
-    "intro": "Informatics graduate with experience in modern web development, REST APIs, and cloud deployments.",
+    "intro": "Informatics Engineering graduate with experience in modern web development, REST APIs, and cloud deployments.",
     "projects_desc": "Selected systems and applications",
     "journey_desc": "Work experience and professional background",
     "skills_desc": "Technical skills and tools",
@@ -29,7 +29,7 @@
     "label": "ABOUT ME",
     "heading": "Crafting Solutions, Driving Real Impact",
     "location": "Kota Padang, Indonesia",
-    "p1": "I am a fresh graduate in Informatics from Universitas Pasundan, originally from Riau, Indonesia. Passionate about Cyber Security, Web Technology, and Open Source, I began my software development journey in 2019.",
+    "p1": "I am a fresh graduate in Informatics Engineering from Universitas Pasundan, originally from Riau, Indonesia. Passionate about Cyber Security, Web Technology, and Open Source, I began my software development journey in 2019.",
     "p2": "I am committed to engineering adaptive digital solutions that empower Indonesian MSMEs to scale sustainably. Currently leading strategic development across Tavio.id, Portavia, and Nyummi.com, my focus centers on transforming ideas into scalable initiatives through digital innovation, ecosystem development, and dependable operational execution.",
     "motto": "Better Life, Greater Impact. Be a blessing to the universe."
   },
@@ -126,7 +126,7 @@
     "exp_gdgoc_company": "GDGoC Universitas Pasundan",
     "exp_gdgoc_period": "Nov 2023 - Feb 2025 · Full-time",
     "exp_gdgoc_location": "Bandung, West Java",
-    "exp_gdgoc_desc": "Organized and facilitated technical web development sessions, hands-on developer workshops, and mentored campus developers in building modern web apps.",
+    "exp_gdgoc_desc": "Contributed to technical initiatives and collaborative web development projects within the Google Developer Groups on Campus community, focusing on modern web technologies and practical software development.",
     "exp_bangkit_role": "Cloud Computing Cohort",
     "exp_bangkit_company": "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
     "exp_bangkit_period": "Feb 2024 - Jul 2024 · 6 mos",

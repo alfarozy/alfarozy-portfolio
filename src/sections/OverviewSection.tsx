@@ -129,7 +129,7 @@ export const OverviewSection = ({ onNavigateSection }: OverviewSectionProps) => 
             <p>
               {t(
                 "about.p1",
-                "I am a fresh graduate in Informatics from Universitas Pasundan, originally from Riau, Indonesia. Passionate about Cyber Security, Web Technology, and Open Source, I began my software development journey in 2021."
+                "I am an Informatics Engineering graduate from Universitas Pasundan, originally from Riau, Indonesia. Passionate about Cyber Security, Web Technology, and Open Source, I began my software development journey in 2021."
               )}
             </p>
             <p>

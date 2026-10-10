@@ -60,11 +60,10 @@ export const ExperienceSection = () => {
             <div key={item.id} className="relative group">
               {/* Timeline Node Icon/Dot */}
               <div
-                className={`absolute -left-[23px] sm:-left-[27px] md:-left-[31px] top-5 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center border-2 transition-all duration-300 z-10 ${
-                  isLatest
-                    ? "bg-(--color-accent-orange) border-orange-400 text-white shadow-md shadow-orange-500/30 scale-110"
-                    : "bg-(--color-surface) border-(--color-border) text-(--color-muted) group-hover:border-(--color-primary) group-hover:text-(--color-primary)"
-                }`}
+                className={`absolute -left-[23px] sm:-left-[27px] md:-left-[31px] top-5 w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center border-2 transition-all duration-300 z-10 ${isLatest
+                  ? "bg-(--color-accent-orange) border-orange-400 text-white shadow-md shadow-orange-500/30 scale-110"
+                  : "bg-(--color-surface) border-(--color-border) text-(--color-muted) group-hover:border-(--color-primary) group-hover:text-(--color-primary)"
+                  }`}
                 aria-hidden="true"
               >
                 {isLatest ? (
@@ -86,7 +85,7 @@ export const ExperienceSection = () => {
                           <img
                             src={item.logo}
                             alt={t(item.company)}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full rounded-full "
                             loading="lazy"
                           />
                         ) : (

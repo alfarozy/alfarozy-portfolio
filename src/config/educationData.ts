@@ -16,7 +16,7 @@ export const educationData: EducationItem[] = [
     id: 1,
     institution: "Universitas Pasundan",
     degree: "Sarjana Teknik Informatika",
-    period: "2021 - 2025",
+    period: "Sep 2021 - Jan 2026",
     description:
       "Focused on software engineering, web application development, algorithms, and cloud computing.",
     logo: unpasLogo,
