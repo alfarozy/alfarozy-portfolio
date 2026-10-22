@@ -215,4 +215,24 @@ textarea:focus-visible {
   }
 }
 
+/* cosmic celestial floating keyframes for planets */
+@keyframes cosmic-float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0.4deg);
+  }
+}
+
+@keyframes cosmic-float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+
 

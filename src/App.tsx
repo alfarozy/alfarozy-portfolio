@@ -14,6 +14,7 @@ import {
   InteractiveBackground,
   BottomNavbar,
   BackgroundStars,
+  CosmicPlanets,
 } from "@/components";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronUp, ChevronDown } from "lucide-react";
@@ -68,6 +69,9 @@ function App() {
         accentRgb="43, 122, 236"
         secondaryRgb="93, 206, 255"
       />
+
+      {/* Cosmic Planets: Saturn (top-right) & Earth (bottom-left) */}
+      <CosmicPlanets />
 
       {/* Interactive cursor tracking grid & spotlight */}
       <InteractiveBackground />

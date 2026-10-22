@@ -6,6 +6,7 @@ export { InteractiveBackground } from "./InteractiveBackground";
 export { CosmicBackground } from "./CosmicBackground";
 export { StarField } from "./StarField";
 export { BackgroundStars } from "./BackgroundStars";
+export { CosmicPlanets } from "./CosmicPlanets";
 export { CosmicOverviewDecoration } from "./CosmicOverviewDecoration";
 export { SpotlightCard } from "./SpotlightCard";
 export { BottomNavbar } from "./BottomNavbar";
