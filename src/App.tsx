@@ -13,8 +13,7 @@ import {
   Loading,
   InteractiveBackground,
   BottomNavbar,
-  StarField,
-  CosmicBackground,
+  BackgroundStars,
 } from "@/components";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronUp, ChevronDown } from "lucide-react";
@@ -64,11 +63,11 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* Layer 2: Subtle cosmic starlight field */}
-      <StarField />
-
-      {/* Layer 3: Cosmic atmosphere & nebula glow */}
-      <CosmicBackground />
+      {/* Background Stars with meteors & aurora glow */}
+      <BackgroundStars
+        accentRgb="43, 122, 236"
+        secondaryRgb="93, 206, 255"
+      />
 
       {/* Interactive cursor tracking grid & spotlight */}
       <InteractiveBackground />
