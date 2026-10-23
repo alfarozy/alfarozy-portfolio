@@ -35,7 +35,7 @@ export const InteractiveBackground = () => {
     const starColor = isDark ? "255, 255, 255" : "15, 23, 42";
     const gridLineColor = isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(0, 0, 0, 0.03)";
 
-    const starCount = Math.min(Math.floor((width * height) / 18000), 50);
+    const starCount = Math.min(Math.floor((width * height) / 45000), 20);
     const stars: FloatingStar[] = [];
 
     for (let i = 0; i < starCount; i++) {

@@ -14,7 +14,7 @@ export const SpotlightCard: React.FC<CardProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-surface) transition-colors duration-200 ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-(--color-border) bg-(--color-surface)/90 backdrop-blur-md transition-colors duration-200 ${className}`}
     >
       {children}
     </div>

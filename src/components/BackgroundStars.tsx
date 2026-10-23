@@ -29,6 +29,8 @@ export interface BackgroundStarsProps {
   /** Warna dasar background canvas (hex atau css var) */
   bgColor?: string;
   className?: string;
+  /** Jumlah bintang khusus (jika ingin mengatur angka pasti) */
+  count?: number;
 }
 
 export const BackgroundStars: React.FC<BackgroundStarsProps> = memo(({
@@ -36,6 +38,7 @@ export const BackgroundStars: React.FC<BackgroundStarsProps> = memo(({
   secondaryRgb = '93, 206, 255',
   bgColor,
   className = '',
+  count,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -68,23 +71,24 @@ export const BackgroundStars: React.FC<BackgroundStarsProps> = memo(({
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Density partikel adaptif (85 - 150 bintang)
-    const starCount = Math.floor(Math.min(width, height) / 9);
+    // Density partikel adaptif yang lebih minimalis & tidak ramai (45 - 75 bintang)
+    const adaptiveCount = Math.floor(Math.min(width, height) / 16);
+    const starCount = count ?? Math.max(45, Math.min(adaptiveCount, 75));
     const stars: Star[] = Array.from(
-      { length: Math.max(85, Math.min(starCount, 150)) },
+      { length: starCount },
       () => {
         const colorRand = Math.random();
-        const radius = 0.8 + Math.random() * 1.5;
+        const radius = 0.7 + Math.random() * 1.4;
         return {
           x: Math.random() * width,
           y: Math.random() * height,
           radius,
-          baseAlpha: 0.35 + Math.random() * 0.5,
-          twinkleSpeed: 0.015 + Math.random() * 0.03,
+          baseAlpha: 0.3 + Math.random() * 0.45,
+          twinkleSpeed: 0.012 + Math.random() * 0.025,
           phase: Math.random() * Math.PI * 2,
-          hasSpike: radius > 1.8 && Math.random() > 0.4,
+          hasSpike: radius > 1.85 && Math.random() > 0.6,
           colorType:
-            colorRand > 0.65 ? 'accent' : colorRand > 0.4 ? 'secondary' : 'white',
+            colorRand > 0.7 ? 'accent' : colorRand > 0.45 ? 'secondary' : 'white',
         };
       }
     );
